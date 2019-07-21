@@ -1,6 +1,8 @@
 import os
 import sys
 import cesarcipher
+import CVig
+
 
 
 
@@ -8,8 +10,7 @@ import cesarcipher
 def bases():
     #conteúdo a ser trabalhado
     print('Insert the content for convert:')
-    crip = input("Insert:_   ")
-    crip=int(crip,10)
+    crip = int(input("Insert:_   "))
 
     print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
     print('Chosen base:')
@@ -76,7 +77,7 @@ def bases():
     elif num == 4:
         translate= bin(crip)
         print(str(crip)+' To binary is:'+str(translate))
-        translate = int(crip,10)
+        translate = int(crip)
         print(str(crip)+' To decimal is:'+str(translate))
         translate = oct(crip)
         print(str(crip)+' To octal is:'+str(translate))
@@ -110,13 +111,25 @@ def cc(cesarcipher):
     if opc == 'sim' or opc == 's':
         main()
     elif opc == 'nao' or opc == 'n':
-        print("Thanks for using my software.\n")
+        input("Thanks for using my software.\n")
         os.system('cls')
         sys.exit()
     return
 
-    
+def cv(CVig):
+    CVig.cv()
+    os.system('cls')
+        print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
+    print('Want to perform another conversion ?')
+    print('Press "s" to yes or "n" to no.')
+    opc = input('Option_   ')
 
+    if opc == 'sim' or opc == 's':
+        main()
+    elif opc == 'nao' or opc == 'n':
+        input("Thanks for using my software.\n")
+        os.system('cls')
+        sys.exit()
 
 def main():
     print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
@@ -127,7 +140,7 @@ def main():
     print('Chose conversion mode:')
     print("[1] - For conversion of binary bases.")
     print('[2] - For césar´s cipher.')
-    print('[3] - Criptographi of phyton.')
+    print('[3] - Python cripto with key.')
     print('[4] - For base64.')
     print('[5] - For Hash MD5.')
     print('[6] - For cipher of substituition.')
@@ -142,6 +155,9 @@ def main():
     elif mode == 2:
         cc(cesarcipher)
         os.system('cls')
+    elif mode == 3:
+        cv(CVig)
+        oc.system('cls')
     else:
         while mode<1 and mode> 7:
             print ('option invalid, try again.')
