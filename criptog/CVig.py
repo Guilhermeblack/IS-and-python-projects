@@ -27,6 +27,12 @@ def cv():
     print("Table mounted !...")
     input('_ ')
     os.system('cls')
+    print('Insert the text:  ')
+    print ('   ')
+    txt = str(input('Text:_     '))
+    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
+    print ('   ')
+    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
     print ('   ')
     print('Set "e" for encrypt')
     print('or')
@@ -38,24 +44,73 @@ def cv():
     print ('   ')
     os.system('cls')
 
-    key()
+    key = keyt(txt)
+   
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-
+    # =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     if mod == 'e' or mod == 'encrypt':
-        enc(key, lb, base)
+        enc(lb, base,txt,key)
     elif mod == 'd' or mod == 'decrypt':
-        dec(key,lb,base)
+        dec(base,lb,txt,key)
+    return
 # =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-def key(txt,keyt)
+
+
+# =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#                   ENCRIPTAR
+def enc(lb, base,txt,key):
+
+    h=0
+    lin=[]
+    y=0
+    crip =''
+    while h < len(txt):
+        while y < len(lb):
+            if key[h] == lb[y][1]:
+                lin.extend(lb[y])
+            y+=1
+        pos=base.find(txt[h])
+        h+=1
+    crip += lin[pos]
+            
+    print('your text encrypted is: ')
+    print(crip)
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    print ('   ')
-    print('Now insert the key')
+    input(':_   ')
+    return crip
+# =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#               DECRIPTAR
+def dec(base,lb,txt,key):
+    s=0
+    crip=''
+    while s < len(txt):
+        l=0
+        while l < len(lb):
+            if key[s] == lb[l][1]:
+                row = lb[l]
+            l+=1
+        pos = base.find(txt[s])
+    crip += row[pos]
+    print('your text decrypted is: ')
+    print(crip)
+    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
+    input(':_   ')
+    return crip
+
+# =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+def keyt(txt):
+    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
+    print('Insert the key')
     keyt = str(input('Key:_    '))
     os.system('cls')
+    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
+
     o=0
     key=[]
-    while o <= len(txt):
-        if txt[o] != ' ':
+    while o < len(txt):
+        if txt[o] !=' ':
             d=0
             while d < len(keyt):
                 key.extend(keyt[d])   #<- key rebece o tamanho do texto
@@ -69,54 +124,6 @@ def key(txt,keyt)
             o+=1
     return key
 # =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-#                   ENCRIPTAR
-def enc(key,lb,base)
-    print('Insert the text for decrypt')
-    print ('   ')
-    txt = str(input('Text:_     '))
-    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    h=0
-    y=0
-    crip =''
-    while h < len(txt):
-        while y < len(lb):
-            if key[h] == lb[y][1]:
-                row = lb[y]
-            y+=1
-        pos=base.find(txt[h])
-        h+=1
-    crip += row[pos]
-            
-    print('your text encrypted is: ')
-    print(crip)
-    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    input(':_   ')
-    return crip
-# =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-#               DECRIPTAR
-def dec(key,lb,base)
-    if mod == 'd' or mod == 'decrypt':
-        print('Insert the text for decrypt')
-        print ('   ')
-        txt = str(input('Text:_     '))
-        print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-        print ('   ')
-        print('Now insert the key')
-        keyt = str(input('Key:_    '))
-        os.system('cls')
-    # =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    s=0
-    while s < len(txt):
-        l=0
-        while l < len(lb):
-            if key[s] == lb[l][1]:
-                row = lb[l]
-            l+=1
-        pos = base.find(txt[s])
-    crip += row[pos]
-    print('your text decrypted is: ')
-    print(crip)
-    print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    input(':_   ')
-# letra da palavra é a linha,  a chave é a colina 1
+
+
 cv()
