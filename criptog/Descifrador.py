@@ -1,9 +1,15 @@
 import os
 import sys
-import cesarcipher
-import CVig
+from cesarcipher import ccipher
+from CVig import cv
+from cryptog import cryp
+from cryptography.fernet import Fernet
 
 
+
+def cyp(Fernet):
+    cryp(Fernet)
+    os.system('cls')
 
 
 
@@ -99,10 +105,9 @@ def bases():
     return
 
 
-def cc(cesarcipher):
-    cesarcipher.ccipher()
+def cc(ccipher):
+    ccipher()
     os.system('cls')
-    #ccipher.close()
     print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
     print('Want to perform another conversion ?')
     print('Press "s" to yes or "n" to no.')
@@ -116,10 +121,10 @@ def cc(cesarcipher):
         sys.exit()
     return
 
-def cv(CVig):
-    CVig.cv()
+def cvig(cv):
+    cv()
     os.system('cls')
-        print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
+    print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
     print('Want to perform another conversion ?')
     print('Press "s" to yes or "n" to no.')
     opc = input('Option_   ')
@@ -140,11 +145,11 @@ def main():
     print('Chose conversion mode:')
     print("[1] - For conversion of binary bases.")
     print('[2] - For césar´s cipher.')
-    print('[3] - Python cripto with key.')
+    print('[3] - For cipher vigenere')
     print('[4] - For base64.')
     print('[5] - For Hash MD5.')
     print('[6] - For cipher of substituition.')
-    print('[7] - Fot cipher de vigenére.')
+    print('[7] - Python cryptography with key.')
     print(' ')
     mode = int(input('Chosen:_  '))
     os.system('cls')
@@ -153,11 +158,14 @@ def main():
         bases()
         os.system('cls')
     elif mode == 2:
-        cc(cesarcipher)
+        cc(ccipher)
         os.system('cls')
     elif mode == 3:
-        cv(CVig)
-        oc.system('cls')
+        cvig(cv)
+        os.system('cls')
+    elif mode == 7:
+        cyp(Fernet)
+        os.system('cls')
     else:
         while mode<1 and mode> 7:
             print ('option invalid, try again.')
