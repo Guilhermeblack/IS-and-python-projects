@@ -35,12 +35,17 @@ def ccipher():
     #insere o texto final
     cripto =''
 
+
+                        #DEBUG AQUI \\//  22-01
+
+
         #escolhe o modo
     if (modo == 'e' or modo == 'encriptar'):
         for word in text:
                     #encontra o numero da posição dp word na base
+
             posicion = base.find(word)
-            if posicion != " ":
+            if posicion != "":
                 #soma a key á posição
                 posicion += key
                 # se a posição for maior que a base ira calcular a diferença
@@ -59,7 +64,7 @@ def ccipher():
                 #encontra a posição
             posicion = base.find(word)
                 #subtrai a key
-            if posicion != " ":
+            if posicion != "":
                 posicion -= key
                 #condicional se a posição foi menor que 0
                 if posicion < 0:

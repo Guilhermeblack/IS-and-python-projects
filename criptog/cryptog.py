@@ -19,7 +19,7 @@ def enc(Fernet):
     key = Fernet(Fernet.generate_key())
     print(' Key gerada: \n ', key)
     print('entre com a mensagem a ser criptografada:')
-    msg = str(input('__   '))
+    msg = str(input(b'__   '))
     cripted = key.encrypt(msg)
     os.system('cls')
     print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
@@ -30,7 +30,7 @@ def enc(Fernet):
 
 def dec(Fernet):
     print('insira a mensagem a ser descifrada:')
-    msg = str(input('__  '))
+    msg = str(input(b'__  '))
     print('-=-=-=---=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
     print('insira a chave assimétrica: ')
     key = str(input('__  '))

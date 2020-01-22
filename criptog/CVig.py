@@ -1,4 +1,5 @@
 import os
+import time
 def cv():  
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
     print('-=-=-=-=-=-=-=-=-=-Vigenére Cypher-=-=-=-=-=-=-=-=-=-')
@@ -25,8 +26,8 @@ def cv():
         print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
         x+=1
     print("Table mounted !...")
-    input('_ ')
-    os.system('cls')
+    time.sleep(5)
+    os.system('cls' if os.name == 'nt' else 'clear')
     print('Insert the text:  ')
     print ('   ')
     txt = str(input('Text:_     '))
@@ -42,7 +43,7 @@ def cv():
     mod = str(input('_  '))
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
     print ('   ')
-    os.system('cls')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     key = keyt(txt)
    
@@ -76,7 +77,8 @@ def enc(lb, base,txt,key):
     print('your text encrypted is: ')
     print(crip)
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    input(':_   ')
+    time.sleep(5)
+    os.system('cls' if os.name == 'nt' else 'clear')
     return crip
 # =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 #               DECRIPTAR
@@ -94,7 +96,8 @@ def dec(base,lb,txt,key):
     print('your text decrypted is: ')
     print(crip)
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    input(':_   ')
+    time.sleep(5)
+    os.system('cls' if os.name == 'nt' else 'clear')
     return crip
 
 # =-=-=-=-=-=-=-==-=-=-===-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -102,7 +105,10 @@ def dec(base,lb,txt,key):
 
 def keyt(txt):
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
-    print('Insert the key')
+    print('Insert the keyword')
+
+    #consição para validar apenas uma letra \/   22-01
+
     keyt = str(input('Key:_    '))
     os.system('cls')
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-')
@@ -116,9 +122,8 @@ def keyt(txt):
                 key.extend(keyt[d])   #<- key rebece o tamanho do texto
                 d+=1
                 o+=1
-            else:
-                d=0
-                o+=1
+            d=0
+            o+=1
         else:
             key.extend('_')
             o+=1
